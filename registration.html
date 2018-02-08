@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+	<title>Registration Form</title>
+	
+	<style>
+		table {
+			background-color:#FFEB3B;
+			border-radius: 25px;
+			padding: 20px;
+			border: 2px dotted blue;
+		}
+		body {
+			background-color:#009688;
+		}
+		form {
+			background-color:;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function validation(){
+			if(document.Registration.username.value == ""){
+				alert("Enter your Name");
+				document.Registration.username.focus() ;
+				return false;
+			}
+			if(document.Registration.password.value == "" ){
+				alert( "Enter Password");
+				document.Registration.password.focus();
+				return false;
+			}
+			if(document.Registration.confirmpass.value == "" || (document.Registration.confirmpass.value != document.Registration.password.value)){
+				alert("Password don't match, kindly Confirm your password!");
+				document.Registration.confirmpass.focus();
+				return false;
+			}
+			if(document.Registration.qualify.value == "select")
+				{
+				alert( "Select your Highest Qualification" );
+				document.Registration.qualify.focus() ;
+				return false;
+				}
+			if(isNaN(document.Registration.number.value) || (document.Registration.number.value == "")|| (document.Registration.number.value.length) != 10){
+				alert( "Enter correct Contact Number" );
+				document.Registration.number.focus() ;
+				return false;
+				}
+			if(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(document.Registration.email.value) == false){
+				alert( "Enter correct E-mail");
+				document.Registration.email.focus();
+				return false;
+			}
+			if(document.Registration.address.value == "")
+				{
+				alert( "Enter your address" );
+				document.Registration.address.focus();
+				return false;
+				}
+			if(document.Registration.dob.value == ""){
+				alert( "Select your Date of Birth");
+				document.Registration.dob.focus();
+				return false;
+			}
+			if(document.Registration.hobbies.value == ""){
+				alert( "Select your Hobbies");
+				document.Registration.hobbies.focus();
+				return false;
+			}
+			else return true;
+		}
+	</script>
+</head>
+<body>
+	<table align=center>
+		<form method="get" name="Registration" onsubmit="return(validation());">
+			<tr><th colspan=2><h1>Registration Form</h1></th></tr>
+			<tr><td>Username: </td> <td><input type="text" name="username" ></td></tr>
+
+			<tr><td>Password:</td><td><input type="password" name="password" ></td></tr>
+			
+			<tr><td>Confirm Password:</td><td><input type="password" name="confirmpass" ></td></tr>
+			
+			<tr><td>Gender:</td><td>
+					<input type="radio" name="gender" value="female" checked="true"> Female
+					<input type="radio" name="gender" value="male" > Male
+					<input type="radio" name="gender" value="other"> Prefer not to say</td></tr>
+			
+			<tr><td>Highest Qualification:
+				</td><td><select name="qualify">
+					<option value="select">--SELECT--</option>
+					<option value="Ph.D">Ph.D</option>
+					<option value="PG">Post-Graduation</option>
+					<option value="Grad">Graduation</option>
+					<option value="12">12th</option>
+					<option value="10">10th</option>
+					<option value="None">None</option>
+				</select></td></tr>
+			
+			<tr><td>Mobile Number: </td><td><input type="text" name="number"></td></tr>
+			
+			<tr><td>E-mail:  </td><td><input type="text" name="email"></td></tr>
+			
+			<tr><td>Address:</td><td> <input type="text" name="address"></td></tr>
+			
+			<tr><td>Date Of Birth: </td><td><input type="date" name="dob"></td></tr>
+			
+			<tr><td>Hobbies:</td><td>
+					<input type="checkbox" name="hobbies" value="sports" > Sports
+					<input type="checkbox" name="hobbies" value="movies"> Movies
+					<input type="checkbox" name="hobbies" value="Internet"> Internet
+					<input type="checkbox" name="hobbies" value="Studying"> Studying
+					<input type="checkbox" name="hobbies" value="Traveling"> Traveling
+				</td></tr>
+			
+			<tr><td colspan=2 align=center><button type="reset" name="reset">Reset</button> <input type="submit" name="Submit"></td></tr>
+		</form>
+	</table>
+</body>
+</html>
